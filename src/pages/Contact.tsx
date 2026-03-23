@@ -25,9 +25,9 @@ const Contact = () => {
           animate={{ opacity: 1, y: 0 }}
           className="max-w-2xl mx-auto"
         >
-          <h1 className="text-3xl sm:text-4xl font-semibold mb-4">Contato</h1>
+          <h1 className="text-3xl sm:text-4xl font-semibold mb-4">Contact</h1>
           <p className="text-muted-foreground mb-12">
-            Canal de comunicação anônimo. Nenhum dado pessoal é obrigatório.
+            Anonymous communication channel. No personal data is required.
           </p>
 
           {sent ? (
@@ -39,18 +39,18 @@ const Contact = () => {
               <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-4">
                 <Send className="w-5 h-5 text-primary" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Mensagem enviada</h3>
+              <h3 className="text-lg font-semibold mb-2">Message sent</h3>
               <p className="text-sm text-muted-foreground mb-1">
-                Seu ticket foi registrado no sistema.
+                Your ticket has been registered in the system.
               </p>
               <p className="text-xs text-muted-foreground">
-                Tempo estimado de resposta: até 48 horas (estimativa, não garantia).
+                Estimated response time: up to 48 hours (estimate, not a guarantee).
               </p>
               <button
                 onClick={() => { setSent(false); setSubject(""); setMessage(""); }}
                 className="mt-6 text-sm text-primary hover:text-primary/80 transition-colors"
               >
-                Enviar outra mensagem
+                Send another message
               </button>
             </motion.div>
           ) : (
@@ -59,24 +59,24 @@ const Contact = () => {
                 <div className="space-y-4">
                   <div>
                     <label className="text-xs font-mono text-muted-foreground tracking-wider mb-2 block">
-                      ASSUNTO
+                      SUBJECT
                     </label>
                     <Input
                       value={subject}
                       onChange={(e) => setSubject(e.target.value)}
-                      placeholder="Descreva brevemente o motivo do contato"
+                      placeholder="Briefly describe the reason for contact"
                       className="bg-surface border-border"
                       maxLength={100}
                     />
                   </div>
                   <div>
                     <label className="text-xs font-mono text-muted-foreground tracking-wider mb-2 block">
-                      MENSAGEM
+                      MESSAGE
                     </label>
                     <Textarea
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
-                      placeholder="Detalhe sua dúvida ou situação. Não inclua informações sensíveis desnecessárias."
+                      placeholder="Detail your question or situation. Do not include unnecessary sensitive information."
                       rows={6}
                       className="bg-surface border-border resize-none"
                       maxLength={2000}
@@ -94,7 +94,7 @@ const Contact = () => {
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90 disabled:opacity-30"
               >
                 <Send className="w-4 h-4 mr-2" />
-                Enviar mensagem
+                Send message
               </Button>
             </form>
           )}
@@ -102,9 +102,9 @@ const Contact = () => {
           {/* Info Cards */}
           <div className="grid sm:grid-cols-3 gap-4 mt-12">
             {[
-              { icon: Shield, title: "Sem dados pessoais", desc: "Nenhum campo obrigatório de identificação." },
-              { icon: Clock, title: "Resposta assíncrona", desc: "Estimativa de até 48h. Sem SLA garantido." },
-              { icon: Key, title: "Comunicação cifrada", desc: "Chave PGP disponível para mensagens sensíveis." },
+              { icon: Shield, title: "No personal data", desc: "No mandatory identification fields." },
+              { icon: Clock, title: "Asynchronous response", desc: "Estimated up to 48h. No guaranteed SLA." },
+              { icon: Key, title: "Encrypted communication", desc: "PGP key available for sensitive messages." },
             ].map((item) => (
               <div key={item.title} className="card-surface p-4 text-center">
                 <item.icon className="w-4 h-4 text-primary mx-auto mb-2" />

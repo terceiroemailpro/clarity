@@ -8,66 +8,66 @@ import {
 
 const categories = [
   {
-    title: "Funcionamento Geral",
+    title: "General Operation",
     questions: [
       {
-        q: "O que é mixing de Bitcoin?",
-        a: "Mixing (ou tumbling) é um processo que quebra a ligação determinística entre entradas e saídas de transações Bitcoin, dificultando a análise de fluxo na blockchain pública.",
+        q: "What is Bitcoin mixing?",
+        a: "Mixing (or tumbling) is a process that breaks the deterministic link between transaction inputs and outputs, making flow analysis on the public blockchain more difficult.",
       },
       {
-        q: "O mixing garante anonimato absoluto?",
-        a: "Não. O serviço reduz significativamente a correlação entre transações, mas não pode garantir anonimato total. A eficácia depende de múltiplos fatores, incluindo comportamento do usuário.",
+        q: "Does mixing guarantee absolute anonymity?",
+        a: "No. The service significantly reduces the correlation between transactions, but it cannot guarantee total anonymity. Effectiveness depends on multiple factors, including user behavior.",
       },
       {
-        q: "Como funciona a dissociação de fundos?",
-        a: "Os fundos depositados entram em um pool de liquidez compartilhado. As saídas são realizadas a partir desse pool em valores fragmentados e tempos distintos, eliminando a correspondência direta com a entrada.",
+        q: "How does fund dissociation work?",
+        a: "Deposited funds enter a shared liquidity pool. Outputs are made from this pool in fragmented amounts and at distinct times, eliminating direct correspondence with the input.",
       },
     ],
   },
   {
-    title: "Tempos e Processamento",
+    title: "Timing and Processing",
     questions: [
       {
-        q: "Quanto tempo leva o processamento?",
-        a: "O tempo varia conforme a configuração de atraso escolhida (0 a 24h) e as condições da rede Bitcoin. Tempos maiores proporcionam maior dissociação temporal.",
+        q: "How long does processing take?",
+        a: "The time varies depending on the chosen delay configuration (0 to 24 hours) and Bitcoin network conditions. Longer delays provide greater temporal dissociation.",
       },
       {
-        q: "Posso rastrear o status da minha operação?",
-        a: "O sistema fornece um identificador de operação no momento da confirmação. Através dele, é possível verificar o status atual do processamento.",
+        q: "Can I track the status of my operation?",
+        a: "The system provides an operation identifier at the time of confirmation. Through it, you can check the current processing status.",
       },
       {
-        q: "O que acontece se a rede estiver congestionada?",
-        a: "Confirmações na blockchain podem atrasar. O sistema aguarda o número mínimo de confirmações antes de iniciar o processamento.",
+        q: "What happens if the network is congested?",
+        a: "Blockchain confirmations may be delayed. The system waits for the minimum number of confirmations before starting processing.",
       },
     ],
   },
   {
-    title: "Limites e Restrições",
+    title: "Limits and Restrictions",
     questions: [
       {
-        q: "Qual o valor mínimo para mixing?",
-        a: "O valor mínimo é definido para cobrir as taxas de rede e serviço. Consulte a página de taxas para valores atualizados.",
+        q: "What is the minimum amount for mixing?",
+        a: "The minimum amount is set to cover network and service fees. Check the fees page for updated values.",
       },
       {
-        q: "Quantos endereços de destino posso usar?",
-        a: "Até 5 endereços de destino por operação, com distribuição percentual configurável.",
+        q: "How many destination addresses can I use?",
+        a: "Up to 5 destination addresses per operation, with configurable percentage distribution.",
       },
       {
-        q: "Posso cancelar uma operação?",
-        a: "Não. Após a confirmação na blockchain, a operação é irreversível. Isso é inerente à natureza do protocolo Bitcoin.",
+        q: "Can I cancel an operation?",
+        a: "No. Once confirmed on the blockchain, the operation is irreversible. This is inherent to the nature of the Bitcoin protocol.",
       },
     ],
   },
   {
-    title: "Segurança e Privacidade",
+    title: "Security and Privacy",
     questions: [
       {
-        q: "O serviço armazena meus dados?",
-        a: "Dados operacionais são mantidos apenas durante o processamento e são progressivamente removidos após a conclusão. Nenhum dado pessoal é coletado.",
+        q: "Does the service store my data?",
+        a: "Operational data is retained only during processing and is progressively removed after completion. No personal data is collected.",
       },
       {
-        q: "Como verifico se um endereço de destino é válido?",
-        a: "O sistema valida o formato do endereço em tempo real. Ainda assim, é responsabilidade do usuário confirmar que o endereço pertence ao destinatário correto.",
+        q: "How do I verify that a destination address is valid?",
+        a: "The system validates the address format in real time. However, it is the user's responsibility to confirm that the address belongs to the correct recipient.",
       },
     ],
   },
@@ -82,9 +82,9 @@ const FAQ = () => {
           animate={{ opacity: 1, y: 0 }}
           className="max-w-2xl mx-auto"
         >
-          <h1 className="text-3xl sm:text-4xl font-semibold mb-4">Perguntas Frequentes</h1>
+          <h1 className="text-3xl sm:text-4xl font-semibold mb-4">Frequently Asked Questions</h1>
           <p className="text-muted-foreground mb-12">
-            Respostas objetivas sobre funcionamento, limitações e boas práticas.
+            Straightforward answers about operation, limitations, and best practices.
           </p>
 
           <div className="space-y-8">
