@@ -22,9 +22,9 @@ const Home = () => {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight mb-6">
-              Dissociação estrutural
+              Dissociação de origem
               <br />
-              <span className="text-primary text-glow">de transações Bitcoin</span>
+              <span className="text-primary text-glow">e destino</span>
             </h1>
 
             <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-8 leading-relaxed">
