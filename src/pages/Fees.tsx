@@ -19,32 +19,32 @@ const Fees = () => {
           animate={{ opacity: 1, y: 0 }}
           className="max-w-2xl mx-auto"
         >
-          <h1 className="text-3xl sm:text-4xl font-semibold mb-4">Estrutura de Taxas</h1>
+          <h1 className="text-3xl sm:text-4xl font-semibold mb-4">Fee Structure</h1>
           <p className="text-muted-foreground mb-12">
-            Transparência total sobre custos. Sem taxas ocultas.
+            Full transparency on costs. No hidden fees.
           </p>
 
           {/* Fee Table */}
           <div className="card-surface overflow-hidden mb-8">
             <div className="p-5 border-b border-border">
-              <h3 className="text-sm font-mono text-muted-foreground tracking-wider">COMPONENTES DE CUSTO</h3>
+              <h3 className="text-sm font-mono text-muted-foreground tracking-wider">COST COMPONENTS</h3>
             </div>
             <div className="divide-y divide-border">
               {[
                 {
-                  name: "Taxa de serviço",
+                  name: "Service fee",
                   value: "1.0% — 3.0%",
-                  desc: "Percentual variável baseado no volume e número de destinos.",
+                  desc: "Variable percentage based on volume and number of destinations.",
                 },
                 {
-                  name: "Taxa de rede (miners fee)",
-                  value: "Variável",
-                  desc: "Determinada pelas condições atuais da rede Bitcoin. Fora do controle do serviço.",
+                  name: "Network fee (miner's fee)",
+                  value: "Variable",
+                  desc: "Determined by current Bitcoin network conditions. Outside the service's control.",
                 },
                 {
-                  name: "Destinos adicionais",
-                  value: "+0.1% por destino",
-                  desc: "Cada endereço de destino adicional gera uma transação extra na rede.",
+                  name: "Additional destinations",
+                  value: "+0.1% per destination",
+                  desc: "Each additional destination address generates an extra network transaction.",
                 },
               ].map((fee) => (
                 <div key={fee.name} className="p-5 flex items-start justify-between gap-4">
@@ -62,12 +62,12 @@ const Fees = () => {
           <div className="card-surface p-6 border-primary/20">
             <div className="flex items-center gap-2 mb-6">
               <Calculator className="w-4 h-4 text-primary" />
-              <h3 className="text-sm font-mono tracking-wider text-muted-foreground">SIMULADOR</h3>
+              <h3 className="text-sm font-mono tracking-wider text-muted-foreground">SIMULATOR</h3>
             </div>
 
             <div className="mb-6">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-sm text-muted-foreground">Valor de entrada</span>
+                <span className="text-sm text-muted-foreground">Input amount</span>
                 <span className="font-mono text-lg text-foreground">{amount[0].toFixed(4)} BTC</span>
               </div>
               <Slider
@@ -81,19 +81,19 @@ const Fees = () => {
 
             <div className="space-y-3 pt-4 border-t border-border">
               <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">Entrada</span>
+                <span className="text-muted-foreground">Input</span>
                 <span className="font-mono">{amount[0].toFixed(4)} BTC</span>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">Taxa de serviço (1.5%)</span>
+                <span className="text-muted-foreground">Service fee (1.5%)</span>
                 <span className="font-mono text-destructive">-{serviceFee.toFixed(6)} BTC</span>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">Taxa de rede (est.)</span>
+                <span className="text-muted-foreground">Network fee (est.)</span>
                 <span className="font-mono text-destructive">-{networkFee.toFixed(4)} BTC</span>
               </div>
               <div className="flex justify-between text-sm font-medium pt-3 border-t border-border">
-                <span>Saída estimada</span>
+                <span>Estimated output</span>
                 <span className="font-mono text-primary">{Math.max(0, total).toFixed(6)} BTC</span>
               </div>
             </div>
@@ -101,8 +101,8 @@ const Fees = () => {
             <div className="flex items-start gap-2 mt-4 p-3 rounded bg-surface border border-border">
               <Info className="w-3 h-3 text-muted-foreground shrink-0 mt-0.5" />
               <p className="text-[11px] text-muted-foreground leading-relaxed">
-                Valores estimados. A taxa de rede pode variar conforme condições de congestionamento.
-                O valor final será exibido no resumo antes da confirmação.
+                Estimated values. Network fees may vary depending on congestion conditions.
+                The final amount will be displayed in the summary before confirmation.
               </p>
             </div>
           </div>

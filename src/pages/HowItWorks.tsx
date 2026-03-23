@@ -4,31 +4,31 @@ import { ArrowDown, Lock, Shuffle, Clock, Send } from "lucide-react";
 const steps = [
   {
     icon: Send,
-    label: "ENTRADA",
-    title: "Envio de fundos",
-    desc: "Você envia BTC para um endereço único gerado exclusivamente para esta operação. O sistema detecta a transação após confirmações na rede.",
-    detail: "O endereço é descartado após uso. Nenhuma reutilização ocorre.",
+    label: "INPUT",
+    title: "Fund Submission",
+    desc: "You send BTC to a unique address generated exclusively for this operation. The system detects the transaction after network confirmations.",
+    detail: "The address is discarded after use. No reuse occurs.",
   },
   {
     icon: Shuffle,
-    label: "PROCESSAMENTO",
-    title: "Dissociação estrutural",
-    desc: "Os fundos entram no pool de liquidez, onde são agregados com outros de forma que a ligação direta entre entrada e saída é quebrada.",
-    detail: "A fragmentação de valores e o escalonamento temporal eliminam correlações volumétricas e cronológicas.",
+    label: "PROCESSING",
+    title: "Structural Dissociation",
+    desc: "Funds enter the liquidity pool, where they are aggregated with others so that the direct link between input and output is broken.",
+    detail: "Value fragmentation and temporal scheduling eliminate volumetric and chronological correlations.",
   },
   {
     icon: Clock,
-    label: "DISTRIBUIÇÃO",
-    title: "Atrasos configuráveis",
-    desc: "O scheduler de pagamentos organiza as saídas em janelas de tempo variáveis, de acordo com a configuração definida pelo usuário.",
-    detail: "Cada saída ocorre em um momento distinto, com valores fragmentados.",
+    label: "DISTRIBUTION",
+    title: "Configurable Delays",
+    desc: "The payment scheduler organizes outputs in variable time windows, according to the configuration defined by the user.",
+    detail: "Each output occurs at a distinct time, with fragmented values.",
   },
   {
     icon: Lock,
-    label: "SAÍDA",
-    title: "Recebimento dissociado",
-    desc: "Os endereços de destino recebem os fundos em novas condições — valores, tempos e origens estruturalmente diferentes da entrada original.",
-    detail: "Após conclusão, dados operacionais são progressivamente removidos do sistema.",
+    label: "OUTPUT",
+    title: "Dissociated Receipt",
+    desc: "Destination addresses receive funds under new conditions — values, times, and origins structurally different from the original input.",
+    detail: "After completion, operational data is progressively removed from the system.",
   },
 ];
 
@@ -41,10 +41,10 @@ const HowItWorks = () => {
           animate={{ opacity: 1, y: 0 }}
           className="max-w-2xl mx-auto text-center mb-16"
         >
-          <h1 className="text-3xl sm:text-4xl font-semibold mb-4">Como Funciona</h1>
+          <h1 className="text-3xl sm:text-4xl font-semibold mb-4">How It Works</h1>
           <p className="text-muted-foreground">
-            Abstração progressiva de um processo tecnicamente complexo.
-            Cada etapa é projetada para reduzir a correlação entre transações.
+            Progressive abstraction of a technically complex process.
+            Each step is designed to reduce the correlation between transactions.
           </p>
         </motion.div>
 
@@ -93,16 +93,16 @@ const HowItWorks = () => {
           className="max-w-2xl mx-auto mt-16"
         >
           <h2 className="text-sm font-mono text-muted-foreground tracking-widest mb-6 text-center">
-            MÓDULOS DE BACKEND
+            BACKEND MODULES
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {[
-              "Monitor Blockchain",
-              "Gerador de Endereços",
-              "Scheduler de Pagamentos",
-              "Pool de Liquidez",
-              "Limpeza de Logs",
-              "Validação de Rede",
+              "Blockchain Monitor",
+              "Address Generator",
+              "Payment Scheduler",
+              "Liquidity Pool",
+              "Log Cleanup",
+              "Network Validation",
             ].map((mod) => (
               <div key={mod} className="card-surface p-3 text-center">
                 <span className="text-xs font-mono text-muted-foreground">{mod}</span>

@@ -18,18 +18,18 @@ const Home = () => {
           <motion.div {...fadeUp} className="max-w-3xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-secondary/50 mb-8">
               <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse-glow" />
-              <span className="text-xs font-mono text-muted-foreground">PROTOCOLO ATIVO</span>
+              <span className="text-xs font-mono text-muted-foreground">PROTOCOL ACTIVE</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight mb-6">
-              Dissociação de origem
+              Origin and destination
               <br />
-              <span className="text-primary text-glow">e destino</span>
+              <span className="text-primary text-glow">dissociation</span>
             </h1>
 
             <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-8 leading-relaxed">
-              Serviço de mixing que quebra a ligação determinística entre entradas e saídas
-              na blockchain, através de fragmentação temporal e volumétrica.
+              A mixing service that breaks the deterministic link between inputs and outputs
+              on the blockchain through temporal and volumetric fragmentation.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -37,14 +37,14 @@ const Home = () => {
                 to="/mixing"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:bg-primary/90 transition-colors border-glow"
               >
-                Iniciar operação
+                Start Operation
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                to="/taxas"
+                to="/fees"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border text-foreground font-medium text-sm hover:bg-secondary transition-colors"
               >
-                Ver estrutura de taxas
+                View Fee Structure
               </Link>
             </div>
           </motion.div>
@@ -60,27 +60,27 @@ const Home = () => {
             viewport={{ once: true }}
             className="text-center text-sm font-mono text-muted-foreground tracking-widest mb-12"
           >
-            PROCESSO SIMPLIFICADO
+            SIMPLIFIED PROCESS
           </motion.h2>
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
                 step: "01",
-                title: "Envie",
-                desc: "Deposite BTC no endereço único gerado para sua operação. Cada endereço é usado uma única vez.",
+                title: "Send",
+                desc: "Deposit BTC to the unique address generated for your operation. Each address is used only once.",
                 icon: ArrowRight,
               },
               {
                 step: "02",
-                title: "Processamento",
-                desc: "Os fundos passam por dissociação temporal e estrutural dentro do pool de liquidez.",
+                title: "Processing",
+                desc: "Funds undergo temporal and structural dissociation within the liquidity pool.",
                 icon: Layers,
               },
               {
                 step: "03",
-                title: "Receba",
-                desc: "Novos fluxos de saída são enviados aos endereços de destino em tempos distintos.",
+                title: "Receive",
+                desc: "New output flows are sent to destination addresses at distinct times.",
                 icon: Shield,
               },
             ].map((item, i) => (
@@ -111,23 +111,23 @@ const Home = () => {
             <div className="flex items-start gap-4">
               <AlertTriangle className="w-5 h-5 text-warning shrink-0 mt-0.5" />
               <div>
-                <h3 className="font-semibold mb-3">Transparência e limitações</h3>
+                <h3 className="font-semibold mb-3">Transparency and Limitations</h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <span className="text-warning mt-1">•</span>
-                    Transações na blockchain são irreversíveis. Fundos enviados não podem ser recuperados.
+                    Blockchain transactions are irreversible. Sent funds cannot be recovered.
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-warning mt-1">•</span>
-                    O serviço não garante anonimato absoluto — reduz correlação, não a elimina completamente.
+                    The service does not guarantee absolute anonymity — it reduces correlation but does not eliminate it entirely.
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-warning mt-1">•</span>
-                    Tempos de processamento variam conforme condições da rede e configuração escolhida.
+                    Processing times vary depending on network conditions and chosen configuration.
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-warning mt-1">•</span>
-                    A responsabilidade pelo uso do serviço é inteiramente do usuário.
+                    Responsibility for the use of this service lies entirely with the user.
                   </li>
                 </ul>
               </div>
@@ -141,9 +141,9 @@ const Home = () => {
         <div className="section-container">
           <div className="grid sm:grid-cols-3 gap-6">
             {[
-              { icon: Eye, title: "Sem logs persistentes", desc: "Dados operacionais são progressivamente removidos após conclusão." },
-              { icon: Shield, title: "Endereços únicos", desc: "Cada operação utiliza identificadores nunca reutilizados." },
-              { icon: Clock, title: "Atrasos variáveis", desc: "Dissociação temporal configurável para cada saída." },
+              { icon: Eye, title: "No persistent logs", desc: "Operational data is progressively removed after completion." },
+              { icon: Shield, title: "Unique addresses", desc: "Each operation uses identifiers that are never reused." },
+              { icon: Clock, title: "Variable delays", desc: "Configurable temporal dissociation for each output." },
             ].map((item, i) => (
               <motion.div
                 key={item.title}

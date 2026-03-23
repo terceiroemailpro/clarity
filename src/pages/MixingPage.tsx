@@ -63,15 +63,15 @@ const MixingPage = () => {
           animate={{ opacity: 1, y: 0 }}
           className="max-w-2xl mx-auto"
         >
-          <h1 className="text-3xl font-semibold mb-2">Nova Operação de Mixing</h1>
+          <h1 className="text-3xl font-semibold mb-2">New Mixing Operation</h1>
           <p className="text-muted-foreground text-sm mb-8">
-            Configure os endereços de destino, distribuição e atrasos.
+            Configure destination addresses, distribution, and delays.
           </p>
 
           {/* Deposit Address */}
           <div className="card-surface p-5 mb-6">
             <label className="text-xs font-mono text-muted-foreground tracking-wider mb-3 block">
-              ENDEREÇO DE DEPÓSITO
+              DEPOSIT ADDRESS
             </label>
             <div className="flex items-center gap-2 bg-surface rounded-md p-3 border border-border">
               <code className="text-sm font-mono text-primary flex-1 break-all">{depositAddress}</code>
@@ -80,7 +80,7 @@ const MixingPage = () => {
               </button>
             </div>
             <p className="text-xs text-muted-foreground mt-2">
-              Endereço único gerado para esta operação. Envie BTC para iniciar.
+              Unique address generated for this operation. Send BTC to begin.
             </p>
           </div>
 
@@ -88,14 +88,14 @@ const MixingPage = () => {
           <div className="card-surface p-5 mb-6">
             <div className="flex items-center justify-between mb-4">
               <label className="text-xs font-mono text-muted-foreground tracking-wider">
-                ENDEREÇOS DE DESTINO
+                DESTINATION ADDRESSES
               </label>
               <button
                 onClick={addDestination}
                 disabled={destinations.length >= 5}
                 className="inline-flex items-center gap-1 text-xs text-primary hover:text-primary/80 disabled:text-muted-foreground disabled:cursor-not-allowed transition-colors"
               >
-                <Plus className="w-3 h-3" /> Adicionar
+                <Plus className="w-3 h-3" /> Add
               </button>
             </div>
 
@@ -104,7 +104,7 @@ const MixingPage = () => {
                 <div key={dest.id} className="flex items-start gap-3">
                   <div className="flex-1 space-y-2">
                     <Input
-                      placeholder="bc1q... endereço Bitcoin"
+                      placeholder="bc1q... Bitcoin address"
                       value={dest.address}
                       onChange={(e) => updateAddress(dest.id, e.target.value)}
                       className="font-mono text-xs bg-surface border-border"
@@ -136,7 +136,7 @@ const MixingPage = () => {
             {totalPercentage !== 100 && (
               <p className="text-xs text-destructive mt-3 flex items-center gap-1">
                 <AlertTriangle className="w-3 h-3" />
-                A soma das porcentagens deve ser 100% (atual: {totalPercentage}%)
+                The sum of percentages must equal 100% (current: {totalPercentage}%)
               </p>
             )}
           </div>
@@ -144,7 +144,7 @@ const MixingPage = () => {
           {/* Delay */}
           <div className="card-surface p-5 mb-6">
             <label className="text-xs font-mono text-muted-foreground tracking-wider mb-3 block">
-              ATRASO DE DISTRIBUIÇÃO
+              DISTRIBUTION DELAY
             </label>
             <div className="flex items-center gap-4">
               <Clock className="w-4 h-4 text-muted-foreground" />
@@ -161,34 +161,34 @@ const MixingPage = () => {
               </span>
             </div>
             <p className="text-xs text-muted-foreground mt-2">
-              Atraso variável entre 0 e 24 horas. Maiores atrasos aumentam a dissociação temporal.
+              Variable delay between 0 and 24 hours. Longer delays increase temporal dissociation.
             </p>
           </div>
 
           {/* Summary */}
           <div className="card-surface p-5 mb-6 border-primary/20">
             <label className="text-xs font-mono text-muted-foreground tracking-wider mb-4 block">
-              RESUMO DA OPERAÇÃO
+              OPERATION SUMMARY
             </label>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span className="text-muted-foreground">Destinos</span>
+                <span className="text-muted-foreground">Destinations</span>
                 <span className="font-mono">{destinations.length}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-muted-foreground">Atraso máximo</span>
+                <span className="text-muted-foreground">Maximum delay</span>
                 <span className="font-mono">{delay[0]}h</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-muted-foreground">Taxa de serviço</span>
+                <span className="text-muted-foreground">Service fee</span>
                 <span className="font-mono">{serviceFee}%</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-muted-foreground">Taxa de rede (est.)</span>
+                <span className="text-muted-foreground">Network fee (est.)</span>
                 <span className="font-mono">{networkFee} BTC</span>
               </div>
               <div className="border-t border-border pt-2 mt-2 flex justify-between font-medium">
-                <span>Distribuição</span>
+                <span>Distribution</span>
                 <span className={totalPercentage === 100 ? "text-primary" : "text-destructive"}>
                   {totalPercentage}%
                 </span>
@@ -200,8 +200,8 @@ const MixingPage = () => {
           <div className="flex items-start gap-3 p-4 rounded-lg bg-warning/5 border border-warning/20 mb-6">
             <AlertTriangle className="w-4 h-4 text-warning shrink-0 mt-0.5" />
             <p className="text-xs text-warning/80 leading-relaxed">
-              Esta operação é irreversível. Verifique todos os endereços de destino cuidadosamente
-              antes de confirmar. Fundos enviados para endereços incorretos não podem ser recuperados.
+              This operation is irreversible. Carefully verify all destination addresses
+              before confirming. Funds sent to incorrect addresses cannot be recovered.
             </p>
           </div>
 
@@ -214,8 +214,8 @@ const MixingPage = () => {
               className="mt-1 accent-primary"
             />
             <span className="text-xs text-muted-foreground leading-relaxed">
-              Li e compreendo que esta operação é irreversível, que o serviço reduz mas não elimina
-              correlação, e que a responsabilidade pelo uso é exclusivamente minha.
+              I have read and understand that this operation is irreversible, that the service reduces
+              but does not eliminate correlation, and that responsibility for its use is entirely mine.
             </span>
           </label>
 
@@ -223,7 +223,7 @@ const MixingPage = () => {
             disabled={!isValid || !confirmed}
             className="w-full bg-primary text-primary-foreground hover:bg-primary/90 disabled:opacity-30"
           >
-            Confirmar Operação
+            Confirm Operation
             <ArrowRight className="w-4 h-4 ml-2" />
           </Button>
         </motion.div>

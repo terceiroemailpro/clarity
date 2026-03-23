@@ -5,11 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
   { path: "/", label: "Home" },
-  { path: "/como-funciona", label: "Como Funciona" },
+  { path: "/how-it-works", label: "How It Works" },
   { path: "/mixing", label: "Mixing" },
-  { path: "/taxas", label: "Taxas" },
+  { path: "/fees", label: "Fees" },
   { path: "/faq", label: "FAQ" },
-  { path: "/contato", label: "Contato" },
+  { path: "/contact", label: "Contact" },
 ];
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -85,7 +85,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <footer className="border-t border-border/50 py-8">
         <div className="section-container text-center">
           <p className="text-xs text-muted-foreground font-mono">
-            MIXFLOW — Privacidade financeira conceitual. Nenhum dado pessoal é armazenado.
+            MIXFLOW — Conceptual financial privacy. No personal data is stored.
           </p>
         </div>
       </footer>
