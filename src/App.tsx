@@ -1,39 +1,30 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import { Providers } from "./app/providers";
+import { routes, notFoundRoute as NotFound } from "./app/routes";
 import Layout from "./components/Layout";
-import Home from "./pages/Home";
-import HowItWorks from "./pages/HowItWorks";
-import MixingPage from "./pages/MixingPage";
-import Fees from "./pages/Fees";
-import FAQ from "./pages/FAQ";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
 
-const queryClient = new QueryClient();
+const PageLoader = () => (
+  <div className="flex flex-1 items-center justify-center py-20">
+    <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+  </div>
+);
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Layout>
+  <Providers>
+    <BrowserRouter>
+      <Layout>
+        <Suspense fallback={<PageLoader />}>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/how-it-works" element={<HowItWorks />} />
-            <Route path="/mixing" element={<MixingPage />} />
-            <Route path="/fees" element={<Fees />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/contact" element={<Contact />} />
+            {routes.map((route) => (
+              <Route key={route.path} path={route.path} element={<route.element />} />
+            ))}
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </Layout>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+        </Suspense>
+      </Layout>
+    </BrowserRouter>
+  </Providers>
 );
 
 export default App;

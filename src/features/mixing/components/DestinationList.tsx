@@ -1,6 +1,6 @@
 import { Plus, Trash2, AlertTriangle } from "lucide-react";
-import { Input } from "@/shared/ui/input";
-import { Slider } from "@/shared/ui/slider";
+import { Input } from "@/components/ui/input";
+import { Slider } from "@/components/ui/slider";
 import { MIXING_CONSTANTS } from "../constants/mixing.constants";
 import type { Destination } from "../types/mixing.types";
 

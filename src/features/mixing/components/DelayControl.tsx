@@ -1,5 +1,5 @@
 import { Clock } from "lucide-react";
-import { Slider } from "@/shared/ui/slider";
+import { Slider } from "@/components/ui/slider";
 import { MIXING_CONSTANTS } from "../constants/mixing.constants";
 
 interface DelayControlProps {
