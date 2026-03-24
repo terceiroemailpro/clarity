@@ -1,26 +1,26 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Lock, Shuffle, Clock, Send } from "lucide-react";
+import { ArrowDown, Lock, Shuffle, Clock, Send, AlertTriangle } from "lucide-react";
 
 const steps = [
   {
     icon: Send,
     label: "INPUT",
     title: "Fund Submission",
-    desc: "You send BTC to a unique address generated exclusively for this operation. The system detects the transaction after network confirmations.",
+    desc: "BTC is sent to a unique address generated exclusively for this operation. The system detects the transaction after network confirmations.",
     detail: "The address is discarded after use. No reuse occurs.",
   },
   {
     icon: Shuffle,
     label: "PROCESSING",
     title: "Structural Dissociation",
-    desc: "Funds enter the liquidity pool, where they are aggregated with others so that the direct link between input and output is broken.",
-    detail: "Value fragmentation and temporal scheduling eliminate volumetric and chronological correlations.",
+    desc: "Funds enter the liquidity pool, where they are aggregated so that the direct link between input and output is broken.",
+    detail: "Value fragmentation and temporal scheduling reduce volumetric and chronological correlations.",
   },
   {
     icon: Clock,
     label: "DISTRIBUTION",
     title: "Configurable Delays",
-    desc: "The payment scheduler organizes outputs in variable time windows, according to the configuration defined by the user.",
+    desc: "The payment scheduler organizes outputs in variable time windows, according to user configuration.",
     detail: "Each output occurs at a distinct time, with fragmented values.",
   },
   {
@@ -28,8 +28,17 @@ const steps = [
     label: "OUTPUT",
     title: "Dissociated Receipt",
     desc: "Destination addresses receive funds under new conditions — values, times, and origins structurally different from the original input.",
-    detail: "After completion, operational data is progressively removed from the system.",
+    detail: "After completion, operational data is progressively reduced.",
   },
+];
+
+const modules = [
+  "Blockchain Monitor",
+  "Address Generator",
+  "Payment Scheduler",
+  "Liquidity Pool",
+  "Log Cleanup",
+  "Network Validation",
 ];
 
 const HowItWorks = () => {
@@ -93,21 +102,21 @@ const HowItWorks = () => {
           className="max-w-2xl mx-auto mt-16"
         >
           <h2 className="text-sm font-mono text-muted-foreground tracking-widest mb-6 text-center">
-            BACKEND MODULES
+            CONCEPTUAL BACKEND MODULES
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            {[
-              "Blockchain Monitor",
-              "Address Generator",
-              "Payment Scheduler",
-              "Liquidity Pool",
-              "Log Cleanup",
-              "Network Validation",
-            ].map((mod) => (
+            {modules.map((mod) => (
               <div key={mod} className="card-surface p-3 text-center">
                 <span className="text-xs font-mono text-muted-foreground">{mod}</span>
               </div>
             ))}
+          </div>
+
+          <div className="mt-6 p-3 rounded-lg bg-warning/5 border border-warning/20 text-center">
+            <p className="text-xs text-warning/80 flex items-center justify-center gap-2">
+              <AlertTriangle className="w-3 h-3" />
+              These modules are conceptual representations for educational purposes.
+            </p>
           </div>
         </motion.div>
       </div>

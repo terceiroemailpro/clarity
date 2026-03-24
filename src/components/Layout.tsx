@@ -2,15 +2,9 @@ import { Link, useLocation } from "react-router-dom";
 import { Shield, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { routes } from "@/app/routes";
 
-const navItems = [
-  { path: "/", label: "Home" },
-  { path: "/how-it-works", label: "How It Works" },
-  { path: "/mixing", label: "Mixing" },
-  { path: "/fees", label: "Fees" },
-  { path: "/faq", label: "FAQ" },
-  { path: "/contact", label: "Contact" },
-];
+const navItems = routes.filter((r) => r.showInNav);
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
@@ -46,6 +40,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <button
             className="md:hidden text-muted-foreground hover:text-foreground"
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle navigation menu"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -85,7 +80,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <footer className="border-t border-border/50 py-8">
         <div className="section-container text-center">
           <p className="text-xs text-muted-foreground font-mono">
-            MIXFLOW — Conceptual financial privacy. No personal data is stored.
+            MIXFLOW — Conceptual demonstration. No real transactions are processed.
           </p>
         </div>
       </footer>

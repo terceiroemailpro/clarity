@@ -12,15 +12,15 @@ const categories = [
     questions: [
       {
         q: "What is Bitcoin mixing?",
-        a: "Mixing (or tumbling) is a process that breaks the deterministic link between transaction inputs and outputs, making flow analysis on the public blockchain more difficult.",
+        a: "Mixing (or tumbling) is a process designed to break the deterministic link between transaction inputs and outputs, making flow analysis on the public blockchain more difficult.",
       },
       {
         q: "Does mixing guarantee absolute anonymity?",
-        a: "No. The service significantly reduces the correlation between transactions, but it cannot guarantee total anonymity. Effectiveness depends on multiple factors, including user behavior.",
+        a: "No. The service is designed to reduce the correlation between transactions, but it cannot guarantee total anonymity. Effectiveness depends on multiple factors, including user behavior and blockchain analysis techniques.",
       },
       {
-        q: "How does fund dissociation work?",
-        a: "Deposited funds enter a shared liquidity pool. Outputs are made from this pool in fragmented amounts and at distinct times, eliminating direct correspondence with the input.",
+        q: "How does fund dissociation work conceptually?",
+        a: "Deposited funds enter a shared liquidity pool. Outputs are made from this pool in fragmented amounts and at distinct times, reducing direct correspondence with the input.",
       },
     ],
   },
@@ -29,11 +29,7 @@ const categories = [
     questions: [
       {
         q: "How long does processing take?",
-        a: "The time varies depending on the chosen delay configuration (0 to 24 hours) and Bitcoin network conditions. Longer delays provide greater temporal dissociation.",
-      },
-      {
-        q: "Can I track the status of my operation?",
-        a: "The system provides an operation identifier at the time of confirmation. Through it, you can check the current processing status.",
+        a: "Processing time varies depending on the chosen delay configuration (0 to 24 hours) and Bitcoin network conditions. Longer delays provide greater temporal dissociation.",
       },
       {
         q: "What happens if the network is congested?",
@@ -46,7 +42,7 @@ const categories = [
     questions: [
       {
         q: "What is the minimum amount for mixing?",
-        a: "The minimum amount is set to cover network and service fees. Check the fees page for updated values.",
+        a: "The minimum amount is set to cover network and service fees. Check the fees page for reference values.",
       },
       {
         q: "How many destination addresses can I use?",
@@ -54,20 +50,20 @@ const categories = [
       },
       {
         q: "Can I cancel an operation?",
-        a: "No. Once confirmed on the blockchain, the operation is irreversible. This is inherent to the nature of the Bitcoin protocol.",
+        a: "In a production environment, once confirmed on the blockchain, the operation would be irreversible. This is inherent to the nature of the Bitcoin protocol.",
       },
     ],
   },
   {
-    title: "Security and Privacy",
+    title: "Design Principles",
     questions: [
       {
-        q: "Does the service store my data?",
-        a: "Operational data is retained only during processing and is progressively removed after completion. No personal data is collected.",
+        q: "What data does the system handle?",
+        a: "The system is designed around data minimization principles. Operational data would be retained only during processing and progressively removed after completion.",
       },
       {
-        q: "How do I verify that a destination address is valid?",
-        a: "The system validates the address format in real time. However, it is the user's responsibility to confirm that the address belongs to the correct recipient.",
+        q: "How do I verify a destination address?",
+        a: "The interface validates address format in real time. However, it is the user's responsibility to confirm that the address belongs to the correct recipient.",
       },
     ],
   },
@@ -84,7 +80,7 @@ const FAQ = () => {
         >
           <h1 className="text-3xl sm:text-4xl font-semibold mb-4">Frequently Asked Questions</h1>
           <p className="text-muted-foreground mb-12">
-            Straightforward answers about operation, limitations, and best practices.
+            Straightforward answers about operation, limitations, and design principles.
           </p>
 
           <div className="space-y-8">

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Shield, ArrowRight, Eye, Clock, Layers, AlertTriangle } from "lucide-react";
+import { Shield, ArrowRight, Clock, Layers, AlertTriangle, Info } from "lucide-react";
 import { motion } from "framer-motion";
 
 const fadeUp = {
@@ -11,6 +11,13 @@ const fadeUp = {
 const Home = () => {
   return (
     <div>
+      {/* Demo Banner */}
+      <div className="bg-warning/10 border-b border-warning/20 py-2 text-center">
+        <p className="text-xs text-warning font-mono">
+          ⚠ EDUCATIONAL DEMO — This is a conceptual interface. No real transactions are processed.
+        </p>
+      </div>
+
       {/* Hero */}
       <section className="py-24 sm:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
@@ -18,7 +25,7 @@ const Home = () => {
           <motion.div {...fadeUp} className="max-w-3xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-secondary/50 mb-8">
               <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse-glow" />
-              <span className="text-xs font-mono text-muted-foreground">PROTOCOL ACTIVE</span>
+              <span className="text-xs font-mono text-muted-foreground">CONCEPTUAL PROTOTYPE</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight mb-6">
@@ -28,8 +35,8 @@ const Home = () => {
             </h1>
 
             <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-8 leading-relaxed">
-              A mixing service that breaks the deterministic link between inputs and outputs
-              on the blockchain through temporal and volumetric fragmentation.
+              A conceptual mixing interface that demonstrates how transaction dissociation
+              works through temporal and volumetric fragmentation.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -41,10 +48,10 @@ const Home = () => {
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                to="/fees"
+                to="/how-it-works"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border text-foreground font-medium text-sm hover:bg-secondary transition-colors"
               >
-                View Fee Structure
+                How It Works
               </Link>
             </div>
           </motion.div>
@@ -68,7 +75,7 @@ const Home = () => {
               {
                 step: "01",
                 title: "Send",
-                desc: "Deposit BTC to the unique address generated for your operation. Each address is used only once.",
+                desc: "Deposit BTC to a unique address generated for the operation. Each address is used only once.",
                 icon: ArrowRight,
               },
               {
@@ -80,7 +87,7 @@ const Home = () => {
               {
                 step: "03",
                 title: "Receive",
-                desc: "New output flows are sent to destination addresses at distinct times.",
+                desc: "Output flows are sent to destination addresses at distinct times and in fragmented amounts.",
                 icon: Shield,
               },
             ].map((item, i) => (
@@ -115,19 +122,19 @@ const Home = () => {
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <span className="text-warning mt-1">•</span>
-                    Blockchain transactions are irreversible. Sent funds cannot be recovered.
+                    This is a simulation/demo environment. No real funds are processed.
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-warning mt-1">•</span>
-                    The service does not guarantee absolute anonymity — it reduces correlation but does not eliminate it entirely.
+                    In production, blockchain transactions are irreversible and cannot be recovered.
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-warning mt-1">•</span>
-                    Processing times vary depending on network conditions and chosen configuration.
+                    Mixing reduces but does not eliminate correlation — absolute anonymity is not achievable.
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-warning mt-1">•</span>
-                    Responsibility for the use of this service lies entirely with the user.
+                    Processing times vary depending on network conditions and configuration.
                   </li>
                 </ul>
               </div>
@@ -136,14 +143,14 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Trust Indicators */}
+      {/* Design Principles */}
       <section className="py-20 border-t border-border/50">
         <div className="section-container">
           <div className="grid sm:grid-cols-3 gap-6">
             {[
-              { icon: Eye, title: "No persistent logs", desc: "Operational data is progressively removed after completion." },
-              { icon: Shield, title: "Unique addresses", desc: "Each operation uses identifiers that are never reused." },
-              { icon: Clock, title: "Variable delays", desc: "Configurable temporal dissociation for each output." },
+              { icon: Info, title: "Data minimization", desc: "Designed to retain only the minimum data required for operation." },
+              { icon: Shield, title: "Address isolation", desc: "Each operation conceptually uses identifiers that are never reused." },
+              { icon: Clock, title: "Temporal dissociation", desc: "Configurable delays between inputs and outputs." },
             ].map((item, i) => (
               <motion.div
                 key={item.title}
