@@ -7,7 +7,7 @@ export function useMixingForm() {
   const [destinations, setDestinations] = useState<Destination[]>([
     { id: "1", address: "", percentage: 100 },
   ]);
-  const [delay, setDelay] = useState(MIXING_CONSTANTS.DEFAULT_DELAY_HOURS);
+  const [delay, setDelay] = useState<number>(MIXING_CONSTANTS.DEFAULT_DELAY_HOURS);
   const [confirmed, setConfirmed] = useState(false);
 
   const addDestination = useCallback(() => {
