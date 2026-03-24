@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { AlertTriangle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { DepositAddressCard, DestinationList, DelayControl, MixSummary } from "../components";
-import { useMixingForm } from "../hooks/useMixingForm";
+import { DepositAddressCard } from "./components/DepositAddressCard";
+import { DestinationList } from "./components/DestinationList";
+import { DelayControl } from "./components/DelayControl";
+import { MixSummary } from "./components/MixSummary";
+import { useMixingForm } from "./hooks/useMixingForm";
 
 const MixingPage = () => {
   const {
