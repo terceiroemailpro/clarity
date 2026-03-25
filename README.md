@@ -31,14 +31,13 @@ src/
 │   └── ui/               # shadcn/ui primitives (shared, generic)
 ├── features/             # Feature-based modules (domain-specific)
 │   ├── mixing/
-│   │   ├── components/   # DepositAddressCard, DestinationList, DelayControl, MixSummary
+│   │   ├── components/   # MixingView, DepositAddressCard, DestinationList, DelayControl, MixSummary
 │   │   ├── hooks/        # useMixingForm
 │   │   ├── services/     # Validation logic
 │   │   ├── constants/    # Fee rates, limits, defaults
 │   │   ├── types/        # TypeScript interfaces
 │   │   ├── utils/        # Clipboard helpers
 │   │   ├── __tests__/    # Unit tests
-│   │   ├── MixingView.tsx
 │   │   └── index.ts      # Barrel export
 │   ├── home/
 │   ├── how-it-works/
