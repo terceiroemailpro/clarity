@@ -7,21 +7,21 @@ export interface RouteConfig {
   showInNav: boolean;
 }
 
-const Home = lazy(() => import("@/features/home/Home"));
-const HowItWorks = lazy(() => import("@/features/how-it-works/HowItWorks"));
-const MixingPage = lazy(() => import("@/features/mixing/MixingPage"));
-const Fees = lazy(() => import("@/features/fees/Fees"));
-const FAQ = lazy(() => import("@/features/faq/FAQ"));
-const Contact = lazy(() => import("@/features/contact/Contact"));
-const NotFound = lazy(() => import("@/features/not-found/NotFound"));
+const HomePage = lazy(() => import("@/pages/HomePage"));
+const HowItWorksPage = lazy(() => import("@/pages/HowItWorksPage"));
+const MixingPage = lazy(() => import("@/pages/MixingPage"));
+const FeesPage = lazy(() => import("@/pages/FeesPage"));
+const FAQPage = lazy(() => import("@/pages/FAQPage"));
+const ContactPage = lazy(() => import("@/pages/ContactPage"));
+const NotFoundPage = lazy(() => import("@/pages/NotFoundPage"));
 
 export const routes: RouteConfig[] = [
-  { path: "/", label: "Home", element: Home, showInNav: true },
-  { path: "/how-it-works", label: "How It Works", element: HowItWorks, showInNav: true },
+  { path: "/", label: "Home", element: HomePage, showInNav: true },
+  { path: "/how-it-works", label: "How It Works", element: HowItWorksPage, showInNav: true },
   { path: "/mixing", label: "Mixing", element: MixingPage, showInNav: true },
-  { path: "/fees", label: "Fees", element: Fees, showInNav: true },
-  { path: "/faq", label: "FAQ", element: FAQ, showInNav: true },
-  { path: "/contact", label: "Contact", element: Contact, showInNav: true },
+  { path: "/fees", label: "Fees", element: FeesPage, showInNav: true },
+  { path: "/faq", label: "FAQ", element: FAQPage, showInNav: true },
+  { path: "/contact", label: "Contact", element: ContactPage, showInNav: true },
 ];
 
-export const notFoundRoute = NotFound;
+export const notFoundRoute = NotFoundPage;
