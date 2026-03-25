@@ -1,4 +1,4 @@
-export { default as MixingView } from "./MixingView";
+export { default as MixingView } from "./components/MixingView";
 export { useMixingForm } from "./hooks/useMixingForm";
 export { DepositAddressCard } from "./components/DepositAddressCard";
 export { DestinationList } from "./components/DestinationList";

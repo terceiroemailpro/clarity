@@ -1,4 +1,4 @@
-import FAQ from "@/features/faq/FAQ";
+import { FAQ } from "@/features/faq";
 
 const FAQPage = () => <FAQ />;
 

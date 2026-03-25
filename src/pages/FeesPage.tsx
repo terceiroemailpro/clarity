@@ -1,4 +1,4 @@
-import Fees from "@/features/fees/Fees";
+import { Fees } from "@/features/fees";
 
 const FeesPage = () => <Fees />;
 
