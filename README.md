@@ -21,43 +21,59 @@ MIXFLOW is a front-end prototype demonstrating the UX and information architectu
 
 ```
 src/
-├── app/              # App-level config (routes, providers)
-├── components/       # Shared layout and UI components
-│   ├── Layout.tsx
-│   └── ui/           # shadcn/ui primitives
-├── features/         # Feature-based modules
-│   ├── mixing/       # Mixing operation interface
-│   │   ├── components/   # DepositAddressCard, DestinationList, etc.
+├── app/                  # App-level orchestration
+│   ├── router.tsx        # BrowserRouter + route rendering + Layout
+│   ├── routes.ts         # Centralized route config (lazy-loaded)
+│   └── providers.tsx     # Global providers (QueryClient, Tooltip, Toasters)
+├── components/
+│   ├── layout/           # App shell (Layout, header, footer, nav)
+│   │   └── Layout.tsx
+│   └── ui/               # shadcn/ui primitives (shared, generic)
+├── features/             # Feature-based modules (domain-specific)
+│   ├── mixing/
+│   │   ├── components/   # DepositAddressCard, DestinationList, DelayControl, MixSummary
 │   │   ├── hooks/        # useMixingForm
 │   │   ├── services/     # Validation logic
-│   │   ├── constants/    # Fee rates, limits
-│   │   └── types/        # TypeScript interfaces
+│   │   ├── constants/    # Fee rates, limits, defaults
+│   │   ├── types/        # TypeScript interfaces
+│   │   ├── utils/        # Clipboard helpers
+│   │   ├── __tests__/    # Unit tests
+│   │   ├── MixingView.tsx
+│   │   └── index.ts      # Barrel export
 │   ├── home/
 │   ├── how-it-works/
 │   ├── fees/
 │   ├── faq/
 │   ├── contact/
 │   └── not-found/
-├── hooks/            # Shared hooks
-└── lib/              # Utility functions
+├── pages/                # Thin page wrappers (composition only)
+│   ├── HomePage.tsx
+│   ├── HowItWorksPage.tsx
+│   ├── MixingPage.tsx
+│   ├── FeesPage.tsx
+│   ├── FAQPage.tsx
+│   ├── ContactPage.tsx
+│   └── NotFoundPage.tsx
+├── hooks/                # Shared/global hooks
+├── lib/                  # Global utilities (cn, etc.)
+└── test/                 # Test setup
 ```
+
+## Architecture Principles
+
+- **Pages are thin**: each page file only imports its feature and composes the view
+- **Features are self-contained**: each feature owns its components, hooks, services, types, and constants
+- **Routes are centralized**: `src/app/routes.ts` is the single source of truth consumed by router and navigation
+- **Lazy-loaded pages**: all routes use `React.lazy` for optimal bundle splitting
+- **Barrel exports**: each feature exposes a clean public API via `index.ts`
 
 ## Getting Started
 
 ```bash
-# Install dependencies
 npm install
-
-# Start dev server
 npm run dev
-
-# Build for production
 npm run build
-
-# Run tests
 npx vitest
-
-# Lint
 npm run lint
 ```
 
@@ -80,14 +96,6 @@ npm run lint
 - **No authentication** — No user accounts or sessions
 - **No PGP/encryption** — Communication features are cosmetic
 - **Fee calculator is illustrative** — Uses fixed reference rates
-
-## Design Decisions
-
-- **Feature-based architecture** for scalability and separation of concerns
-- **Centralized route config** consumed by both router and navigation
-- **Lazy-loaded pages** for optimal bundle splitting
-- **Honest UX** — All simulation/demo limitations are clearly communicated
-- **BTC address validation** uses regex matching standard Bitcoin address formats
 
 ## License
 

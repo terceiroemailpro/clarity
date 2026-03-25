@@ -97,4 +97,4 @@ const MixingView = () => {
   );
 };
 
-export default MixingPage;
+export default MixingView;
