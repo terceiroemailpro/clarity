@@ -7,7 +7,7 @@ import { DelayControl } from "./components/DelayControl";
 import { MixSummary } from "./components/MixSummary";
 import { useMixingForm } from "./hooks/useMixingForm";
 
-const MixingPage = () => {
+const MixingView = () => {
   const {
     destinations,
     delay,
@@ -97,4 +97,4 @@ const MixingPage = () => {
   );
 };
 
-export default MixingPage;
+export default MixingView;

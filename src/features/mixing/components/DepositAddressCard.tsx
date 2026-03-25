@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { Copy, Check, AlertTriangle } from "lucide-react";
 import { SIMULATION_DEPOSIT_ADDRESS } from "../constants/mixing.constants";
+import { copyToClipboard } from "../utils/clipboard";
 
 export const DepositAddressCard = () => {
   const [copied, setCopied] = useState(false);
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(SIMULATION_DEPOSIT_ADDRESS);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const handleCopy = async () => {
+    const success = await copyToClipboard(SIMULATION_DEPOSIT_ADDRESS);
+    if (success) {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
   };
 
   return (
