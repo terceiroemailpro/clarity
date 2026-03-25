@@ -1,4 +1,4 @@
-import MixingView from "@/features/mixing/MixingView";
+import { MixingView } from "@/features/mixing";
 
 const MixingPage = () => <MixingView />;
 

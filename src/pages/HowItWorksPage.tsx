@@ -1,4 +1,4 @@
-import HowItWorks from "@/features/how-it-works/HowItWorks";
+import { HowItWorks } from "@/features/how-it-works";
 
 const HowItWorksPage = () => <HowItWorks />;
 
