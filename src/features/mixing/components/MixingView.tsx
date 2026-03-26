@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { AlertTriangle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { DISCLAIMERS } from "@/shared/content";
 import { DepositAddressCard } from "./DepositAddressCard";
 import { DestinationList } from "./DestinationList";
 import { DelayControl } from "./DelayControl";
@@ -30,11 +31,8 @@ const MixingView = () => {
           animate={{ opacity: 1, y: 0 }}
           className="max-w-2xl mx-auto"
         >
-          {/* Demo Banner */}
           <div className="mb-6 p-3 rounded-lg bg-warning/10 border border-warning/20 text-center">
-            <p className="text-xs text-warning font-mono">
-              ⚠ SIMULATION ENVIRONMENT — No real transactions are processed
-            </p>
+            <p className="text-xs text-warning font-mono">{DISCLAIMERS.SIMULATION_BANNER}</p>
           </div>
 
           <h1 className="text-3xl font-semibold mb-2">New Mixing Operation</h1>
@@ -61,16 +59,11 @@ const MixingView = () => {
             totalPercentage={totalPercentage}
           />
 
-          {/* Warning */}
           <div className="flex items-start gap-3 p-4 rounded-lg bg-warning/5 border border-warning/20 mb-6">
             <AlertTriangle className="w-4 h-4 text-warning shrink-0 mt-0.5" />
-            <p className="text-xs text-warning/80 leading-relaxed">
-              In a production environment, this operation would be irreversible. This is a
-              simulation interface for educational and demonstration purposes only.
-            </p>
+            <p className="text-xs text-warning/80 leading-relaxed">{DISCLAIMERS.MIXING_WARNING}</p>
           </div>
 
-          {/* Confirm */}
           <label className="flex items-start gap-3 mb-6 cursor-pointer">
             <input
               type="checkbox"
@@ -79,8 +72,7 @@ const MixingView = () => {
               className="mt-1 accent-primary"
             />
             <span className="text-xs text-muted-foreground leading-relaxed">
-              I understand this is a simulation environment. No real funds will be processed
-              and no actual blockchain transactions will occur.
+              {DISCLAIMERS.MIXING_CONFIRM}
             </span>
           </label>
 

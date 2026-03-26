@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Copy, Check, AlertTriangle } from "lucide-react";
-import { SIMULATION_DEPOSIT_ADDRESS } from "../constants/mixing.constants";
+import { MIXING_CONSTANTS, SIMULATION_DEPOSIT_ADDRESS } from "../constants/mixing.constants";
+import { DISCLAIMERS } from "@/shared/content";
 import { copyToClipboard } from "../utils/clipboard";
 
 export const DepositAddressCard = () => {
@@ -32,9 +33,7 @@ export const DepositAddressCard = () => {
       </div>
       <div className="flex items-start gap-2 mt-2">
         <AlertTriangle className="w-3 h-3 text-warning shrink-0 mt-0.5" />
-        <p className="text-xs text-warning/80">
-          Simulation only — this is not a real deposit address. Do not send actual funds.
-        </p>
+        <p className="text-xs text-warning/80">{DISCLAIMERS.DEPOSIT_WARNING}</p>
       </div>
     </div>
   );
