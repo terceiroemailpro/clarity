@@ -1,11 +1,9 @@
 import { describe, it, expect } from "vitest";
-
-const SIMULATOR_FEE_RATE = 0.015;
-const SIMULATOR_NETWORK_FEE = 0.0001;
+import { SIMULATOR_CONFIG } from "@/shared/config";
 
 function calculateFees(amount: number) {
-  const serviceFee = amount * SIMULATOR_FEE_RATE;
-  const total = amount - serviceFee - SIMULATOR_NETWORK_FEE;
+  const serviceFee = amount * SIMULATOR_CONFIG.SERVICE_FEE_RATE;
+  const total = amount - serviceFee - SIMULATOR_CONFIG.NETWORK_FEE_ESTIMATE;
   return { serviceFee, total: Math.max(0, total) };
 }
 
@@ -22,7 +20,6 @@ describe("fees calculation", () => {
 
   it("returns 0 for very small amounts", () => {
     const { total } = calculateFees(0.001);
-    // 0.001 - 0.000015 - 0.0001 = 0.000885
     expect(total).toBeGreaterThan(0);
   });
 

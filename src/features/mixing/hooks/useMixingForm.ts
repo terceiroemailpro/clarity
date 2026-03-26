@@ -1,18 +1,18 @@
 import { useState, useCallback, useMemo } from "react";
 import type { Destination } from "../types/mixing.types";
-import { MIXING_CONSTANTS } from "../constants/mixing.constants";
+import { SIMULATOR_CONFIG } from "@/shared/config";
 import { isFormValid, getTotalPercentage, redistributePercentages } from "../services/mixing.validation";
 
 export function useMixingForm() {
   const [destinations, setDestinations] = useState<Destination[]>([
     { id: "1", address: "", percentage: 100 },
   ]);
-  const [delay, setDelay] = useState<number>(MIXING_CONSTANTS.DEFAULT_DELAY_HOURS);
+  const [delay, setDelay] = useState<number>(SIMULATOR_CONFIG.DEFAULT_DELAY_HOURS);
   const [confirmed, setConfirmed] = useState(false);
 
   const addDestination = useCallback(() => {
     setDestinations((prev) => {
-      if (prev.length >= MIXING_CONSTANTS.MAX_DESTINATIONS) return prev;
+      if (prev.length >= SIMULATOR_CONFIG.MAX_DESTINATIONS) return prev;
       const next = [...prev, { id: Date.now().toString(), address: "", percentage: 0 }];
       return redistributePercentages(next);
     });
@@ -20,7 +20,7 @@ export function useMixingForm() {
 
   const removeDestination = useCallback((id: string) => {
     setDestinations((prev) => {
-      if (prev.length <= MIXING_CONSTANTS.MIN_DESTINATIONS) return prev;
+      if (prev.length <= SIMULATOR_CONFIG.MIN_DESTINATIONS) return prev;
       const filtered = prev.filter((d) => d.id !== id);
       return redistributePercentages(filtered);
     });

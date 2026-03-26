@@ -1,4 +1,4 @@
-import { MIXING_CONSTANTS } from "../constants/mixing.constants";
+import { SIMULATOR_CONFIG } from "@/shared/config";
 
 interface MixSummaryProps {
   destinationCount: number;
@@ -23,11 +23,11 @@ export const MixSummary = ({ destinationCount, delay, totalPercentage }: MixSumm
         </div>
         <div className="flex justify-between">
           <span className="text-muted-foreground">Service fee</span>
-          <span className="font-mono">{(MIXING_CONSTANTS.SERVICE_FEE_RATE * 100).toFixed(1)}%</span>
+          <span className="font-mono">{(SIMULATOR_CONFIG.SERVICE_FEE_RATE * 100).toFixed(1)}%</span>
         </div>
         <div className="flex justify-between">
           <span className="text-muted-foreground">Network fee (est.)</span>
-          <span className="font-mono">{MIXING_CONSTANTS.NETWORK_FEE_ESTIMATE} BTC</span>
+          <span className="font-mono">{SIMULATOR_CONFIG.NETWORK_FEE_ESTIMATE} BTC</span>
         </div>
         <div className="border-t border-border pt-2 mt-2 flex justify-between font-medium">
           <span>Distribution</span>

@@ -3,6 +3,7 @@ import { Shield, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { routes } from "@/app/routes";
+import { DISCLAIMERS } from "@/shared/content";
 
 const navItems = routes.filter((r) => r.showInNav);
 
@@ -79,9 +80,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
       <footer className="border-t border-border/50 py-8">
         <div className="section-container text-center">
-          <p className="text-xs text-muted-foreground font-mono">
-            MIXFLOW — Conceptual demonstration. No real transactions are processed.
-          </p>
+          <p className="text-xs text-muted-foreground font-mono">{DISCLAIMERS.FOOTER}</p>
         </div>
       </footer>
     </div>

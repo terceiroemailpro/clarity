@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, Clock, Shield, AlertTriangle } from "lucide-react";
+import { Send, Shield, Clock, AlertTriangle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { DISCLAIMERS } from "@/shared/content";
+import { CONTACT_INFO_CARDS } from "../content/contact.data";
 
-const Contact = () => {
+const iconMap = { Send, Shield, Clock } as const;
+
+const ContactView = () => {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [sent, setSent] = useState(false);
@@ -30,12 +34,9 @@ const Contact = () => {
             Demo contact form. No personal data is required.
           </p>
 
-          {/* Demo disclaimer */}
           <div className="flex items-start gap-2 p-3 rounded-lg bg-warning/10 border border-warning/20 mb-8">
             <AlertTriangle className="w-3 h-3 text-warning shrink-0 mt-0.5" />
-            <p className="text-xs text-warning/80">
-              This is a demo interface. Messages are not persisted or delivered to any recipient.
-            </p>
+            <p className="text-xs text-warning/80">{DISCLAIMERS.CONTACT_DISCLAIMER}</p>
           </div>
 
           {sent ? (
@@ -48,9 +49,7 @@ const Contact = () => {
                 <Send className="w-5 h-5 text-primary" />
               </div>
               <h3 className="text-lg font-semibold mb-2">Message submitted</h3>
-              <p className="text-sm text-muted-foreground mb-1">
-                This is a demo — no message was actually sent or stored.
-              </p>
+              <p className="text-sm text-muted-foreground mb-1">{DISCLAIMERS.CONTACT_SENT}</p>
               <button
                 onClick={() => { setSent(false); setSubject(""); setMessage(""); }}
                 className="mt-6 text-sm text-primary hover:text-primary/80 transition-colors"
@@ -104,18 +103,17 @@ const Contact = () => {
             </form>
           )}
 
-          {/* Info Cards */}
           <div className="grid sm:grid-cols-2 gap-4 mt-12">
-            {[
-              { icon: Shield, title: "No personal data", desc: "No mandatory identification fields." },
-              { icon: Clock, title: "Demo environment", desc: "Messages are not stored or processed." },
-            ].map((item) => (
-              <div key={item.title} className="card-surface p-4 text-center">
-                <item.icon className="w-4 h-4 text-primary mx-auto mb-2" />
-                <h4 className="text-xs font-medium mb-1">{item.title}</h4>
-                <p className="text-[11px] text-muted-foreground">{item.desc}</p>
-              </div>
-            ))}
+            {CONTACT_INFO_CARDS.map((item) => {
+              const Icon = iconMap[item.icon as keyof typeof iconMap];
+              return (
+                <div key={item.title} className="card-surface p-4 text-center">
+                  <Icon className="w-4 h-4 text-primary mx-auto mb-2" />
+                  <h4 className="text-xs font-medium mb-1">{item.title}</h4>
+                  <p className="text-[11px] text-muted-foreground">{item.desc}</p>
+                </div>
+              );
+            })}
           </div>
         </motion.div>
       </div>
@@ -123,4 +121,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default ContactView;
