@@ -1,7 +1,7 @@
 import { Plus, Trash2, AlertTriangle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
-import { MIXING_CONSTANTS } from "../constants/mixing.constants";
+import { SIMULATOR_CONFIG } from "@/shared/config";
 import type { Destination } from "../types/mixing.types";
 
 interface DestinationListProps {
@@ -29,7 +29,7 @@ export const DestinationList = ({
         </label>
         <button
           onClick={onAdd}
-          disabled={destinations.length >= MIXING_CONSTANTS.MAX_DESTINATIONS}
+          disabled={destinations.length >= SIMULATOR_CONFIG.MAX_DESTINATIONS}
           className="inline-flex items-center gap-1 text-xs text-primary hover:text-primary/80 disabled:text-muted-foreground disabled:cursor-not-allowed transition-colors"
         >
           <Plus className="w-3 h-3" /> Add

@@ -1,8 +1,8 @@
-import { MIXING_CONSTANTS } from "../constants/mixing.constants";
+import { SIMULATOR_CONFIG } from "@/shared/config";
 import type { Destination } from "../types/mixing.types";
 
 export function isValidBtcAddress(address: string): boolean {
-  return MIXING_CONSTANTS.BTC_ADDRESS_REGEX.test(address);
+  return SIMULATOR_CONFIG.BTC_ADDRESS_REGEX.test(address);
 }
 
 export function getTotalPercentage(destinations: Destination[]): number {
